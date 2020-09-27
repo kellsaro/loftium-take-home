@@ -1,4 +1,7 @@
 # Loftium Take-Home
+This repository is a solution to a take-home assigment. Following you can find the **Take-home description** section. Instructions on how it works can be found at the **Solution** section.
+
+## Take-home description
 
 In this take-home, we want you to demonstrate your full skillset as if you are already a teammate here at Loftium. We've provided a set of requirements that resemble a task you might be given in one of our sprints. When you have completed the project, you will make a pull request that will then be code-reviewed by the team.
 
@@ -40,3 +43,30 @@ This endpoint returns all unavailable (booked) nights for a given listing. For e
 * Create a new branch in this repo for you to work in.
 * Submit your work as a pull request to the `master` branch.
 * Please include instructions on how to run your service.
+
+## Solution
+
+The solution is implemented as a Rails 6 API application.
+
+### Instructions:
+- Download this branch
+- In  the command line, go to the downloaded folder
+- Check you have Ruby 2.7 and run `bundle install`
+
+### Run the application:
+- The application is configured to access the provided PostgreSQL database
+- In the console run `rails s`
+- Now you can request the endpoints at `localhost:3000/api/v1/listings/from/:check_in_date/to/:check_out_date` and `localhost:3000/api/v1/listings/:id/unavailable_nights`. Provide the correspondant parameters `check_in_date`, `check_out_date` and `:id`.
+
+### Documentation:
+- While the server is running, you can access the API documentation at `http://localhost:3000/docs`
+
+### Tests:
+- Tests lives under `specs` folder
+- Be sure you have docker-compose installed
+- In the command line, from the base directory start docker compose with `docker-compose create` and then `docker-compose start`
+- Run `bundle exec rspec` to run all tests.
+- Running all tests you can obtain a report on test coverage. This report is powered by `simplecov` gem and lives at `coverage/index.html`.
+- In console you can run `brakeman` and get a static analysis security report.
+- In console you can run `bundle-audit`. It checks that the used gems has no vulnerabilities.
+- You can stop docker-compose runing `docker-compose stop`.
