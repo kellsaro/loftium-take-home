@@ -1,0 +1,26 @@
+{
+  "published": true,
+  "name": "This endpoint returns all unavailable (booked) nights for a given listing.",
+  "end_point": "/api/v1/listings/:id/unavailable_nights.json",
+  "http_method": "GET",
+  "params": [
+    {
+      "key": ":id",
+      "required": true,
+      "type": "UUID",
+      "description": "Listing id"
+    }
+  ],
+  "header": {
+    "Content-Type": "application/json"
+  },
+  "examples": [
+    {
+      "request_headers": {
+        "Content-Type": "application/json"
+      },
+      "request": "/api/v1/listings/dc934912-162f-4bcc-9c12-9049e1cc7ec3/unavailable_nights.json",
+      "response": [ "2020-09-27", "2020-09-28", "2020-09-29" ]
+    }
+  ]
+}

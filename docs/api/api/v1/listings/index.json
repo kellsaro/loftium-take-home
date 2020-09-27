@@ -1,0 +1,42 @@
+{
+  "published": true,
+  "name": "This endpoint allows users to filter our listings based on their desired travel dates.",
+  "end_point": "/api/v1/listings/from/:check_in_date/to/:check_out_date.json",
+  "http_method": "GET",
+  "params": [
+    {
+      "key": ":check_in_date",
+      "required": true,
+      "type": "String",
+      "description": "Check in date",
+      "validations": ["Should be in format yyyy-mm-dd"]
+    },
+    {
+      "key": ":check_out_date",
+      "required": true,
+      "type": "String",
+      "description": "Check out date",
+      "validations": ["Should be in format yyyy-mm-dd", "Should be greater than check in date"]
+    }
+  ],
+  "header": {
+    "Content-Type": "application/json"
+  },
+  "examples": [
+    {
+      "request_headers": {
+        "Content-Type": "application/json"
+      },
+
+      "request": "/api/v1/listings/from/2020-10-01/to/2020-10-03.json",
+      "response": [
+        {
+          "id": "dc934912-162f-4bcc-9c12-9049e1cc7ec3"
+        },
+        {
+          "id": "08e43175-a270-4c64-a1af-0d9df8a8dbe9"
+        }
+      ]
+    }
+  ]
+}
